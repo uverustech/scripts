@@ -2,7 +2,7 @@
 # Script: set_permissions_dev.sh
 # Description: Loose 777 permission setup for development
 
-WEB_ROOT="/www/wwwroot/dpanza.joinda.net"
+WEB_ROOT="$(pwd)"
 
 # Create /xml directory if it doesn't exist
 if [ ! -d "$WEB_ROOT/xml" ]; then

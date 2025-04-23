@@ -2,7 +2,7 @@
 # Script: set_permissions_secure.sh
 # Description: Secure permission setup for production
 
-WEB_ROOT="/www/wwwroot/dpanza.joinda.net"
+WEB_ROOT="$(pwd)"
 APACHE_USER="www-data"
 
 # Set ownership to Apache user
