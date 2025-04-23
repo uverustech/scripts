@@ -14,10 +14,6 @@ fi
 echo "Using current directory as WEB_ROOT: $WEB_ROOT"
 echo "Applying $MODE permissions..."
 
-# Set ownership to Apache user
-echo "Setting ownership to $APACHE_USER..."
-chown -R $APACHE_USER:$APACHE_USER "$WEB_ROOT"
-
 if [[ "$MODE" == "dev" ]]; then
   # Dev mode: chmod 777 everything
   find "$WEB_ROOT" -type d -exec chmod 777 {} \;
@@ -40,13 +36,17 @@ if [[ "$MODE" == "dev" ]]; then
     ! -path "$WEB_ROOT/sitemap.xml" \
     ! -path "$WEB_ROOT/sitemap-index.xml" \
     ! -path "$WEB_ROOT/themes/joinda-classic/img*" \
-    ! -path "$WEB_ROOT/nodejs/mmomdels/wo_langs.js" \
+    ! -path "$WEB_ROOT/nodejs/momdels/wo_langs.js" \
     ! -path "$WEB_ROOT/upload*" \
     ! -path "$WEB_ROOT/xml*" \
     ! -path "$WEB_ROOT/cache*" \
   \) -type f -exec chmod -x {} \;
 
 else
+  # Set ownership to Apache user
+  echo "Setting ownership to $APACHE_USER..."
+  chown -R $APACHE_USER:$APACHE_USER "$WEB_ROOT"
+
   # Secure mode: directories 775, files 664
   find "$WEB_ROOT" -type d -exec chmod 775 {} \;
   find "$WEB_ROOT" -type f -exec chmod 664 {} \;
