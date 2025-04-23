@@ -36,7 +36,7 @@ if [[ "$MODE" == "dev" ]]; then
     ! -path "$WEB_ROOT/sitemap.xml" \
     ! -path "$WEB_ROOT/sitemap-index.xml" \
     ! -path "$WEB_ROOT/themes/joinda-classic/img/*" \
-    ! -path "$WEB_ROOT/nodejs/momdels/wo_langs.js" \
+    ! -path "$WEB_ROOT/nodejs/models/wo_langs.js" \
     ! -path "$WEB_ROOT/upload/*" \
     ! -path "$WEB_ROOT/xml/*" \
     ! -path "$WEB_ROOT/cache/*" \
