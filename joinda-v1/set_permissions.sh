@@ -26,7 +26,7 @@ if [[ "$MODE" == "dev" ]]; then
   chmod 777 "$WEB_ROOT/sitemap-index.xml"
   chmod -R 777 "$WEB_ROOT/themes/joinda-classic/img"
   chmod 777 "$WEB_ROOT/themes/joinda-classic/img/logo.png"
-  chmod 777 "$WEB_ROOT/nodejs/mmomdels/wo_langs.js"
+  chmod 777 "$WEB_ROOT/nodejs/models/wo_langs.js"
   chmod -R 777 "$WEB_ROOT/upload"
   chmod -R 777 "$WEB_ROOT/cache"
 else
