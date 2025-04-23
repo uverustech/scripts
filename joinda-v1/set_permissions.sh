@@ -32,15 +32,15 @@ if [[ "$MODE" == "dev" ]]; then
 
   # Cleanup execute bits from everything except explicitly writable paths
   echo "Removing execute permissions from unintended files..."
-  find "$WEB_ROOT" \(
+  find "$WEB_ROOT" -type f \
     ! -path "$WEB_ROOT/sitemap.xml" \
     ! -path "$WEB_ROOT/sitemap-index.xml" \
-    ! -path "$WEB_ROOT/themes/joinda-classic/img*" \
-    ! -path "$WEB_ROOT/nodejs/momdels/wo_langs.js" \
-    ! -path "$WEB_ROOT/upload*" \
-    ! -path "$WEB_ROOT/xml*" \
-    ! -path "$WEB_ROOT/cache*" \
-  \) -type f -exec chmod -x {} \;
+    ! -path "$WEB_ROOT/themes/joinda-classic/img/*" \
+    ! -path "$WEB_ROOT/nodejs/mmomdels/wo_langs.js" \
+    ! -path "$WEB_ROOT/upload/*" \
+    ! -path "$WEB_ROOT/xml/*" \
+    ! -path "$WEB_ROOT/cache/*" \
+    -exec chmod -x {} \;
 
 else
   # Set ownership to Apache user
