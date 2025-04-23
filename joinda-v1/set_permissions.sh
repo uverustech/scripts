@@ -29,19 +29,6 @@ if [[ "$MODE" == "dev" ]]; then
   chmod 777 "$WEB_ROOT/nodejs/mmomdels/wo_langs.js"
   chmod -R 777 "$WEB_ROOT/upload"
   chmod -R 777 "$WEB_ROOT/cache"
-
-  # Cleanup execute bits from everything except explicitly writable paths
-  echo "Removing execute permissions from unintended files..."
-  find "$WEB_ROOT" -type f \
-    ! -path "$WEB_ROOT/sitemap.xml" \
-    ! -path "$WEB_ROOT/sitemap-index.xml" \
-    ! -path "$WEB_ROOT/themes/joinda-classic/img/*" \
-    ! -path "$WEB_ROOT/nodejs/models/wo_langs.js" \
-    ! -path "$WEB_ROOT/upload/*" \
-    ! -path "$WEB_ROOT/xml/*" \
-    ! -path "$WEB_ROOT/cache/*" \
-    -exec chmod -x {} \;
-
 else
   # Set ownership to Apache user
   echo "Setting ownership to $APACHE_USER..."
