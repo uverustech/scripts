@@ -29,6 +29,23 @@ if [[ "$MODE" == "dev" ]]; then
   chmod 777 "$WEB_ROOT/sitemap.xml"
   chmod 777 "$WEB_ROOT/sitemap-index.xml"
   chmod -R 777 "$WEB_ROOT/themes/joinda-classic/img"
+  chmod 777 "$WEB_ROOT/themes/joinda-classic/img/logo.png"
+  chmod 777 "$WEB_ROOT/nodejs/mmomdels/wo_langs.js"
+  chmod -R 777 "$WEB_ROOT/upload"
+  chmod -R 777 "$WEB_ROOT/cache"
+
+  # Cleanup execute bits from everything except explicitly writable paths
+  echo "Removing execute permissions from unintended files..."
+  find "$WEB_ROOT" \(
+    ! -path "$WEB_ROOT/sitemap.xml" \
+    ! -path "$WEB_ROOT/sitemap-index.xml" \
+    ! -path "$WEB_ROOT/themes/joinda-classic/img*" \
+    ! -path "$WEB_ROOT/nodejs/mmomdels/wo_langs.js" \
+    ! -path "$WEB_ROOT/upload*" \
+    ! -path "$WEB_ROOT/xml*" \
+    ! -path "$WEB_ROOT/cache*" \
+  \) -type f -exec chmod -x {} \;
+
 else
   # Secure mode: directories 775, files 664
   find "$WEB_ROOT" -type d -exec chmod 775 {} \;
